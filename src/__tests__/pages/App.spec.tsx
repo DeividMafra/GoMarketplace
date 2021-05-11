@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-import { mocked } from 'ts-jest/utils';
-import { render, fireEvent, act, wait } from '@testing-library/react-native';
+import {mocked} from 'ts-jest/utils';
+import {render, fireEvent, act, wait} from '@testing-library/react-native';
 import AxiosMock from 'axios-mock-adapter';
 import api from '../../services/api';
 
@@ -27,7 +27,7 @@ jest.mock('../../hooks/cart.tsx', () => ({
 }));
 
 import Dashboard from '../../pages/Dashboard';
-import { useCart } from '../../hooks/cart';
+import {useCart} from '../../hooks/cart';
 
 const apiMock = new AxiosMock(api);
 
@@ -50,7 +50,7 @@ describe('Dashboard', () => {
       },
     ]);
 
-    const { getByText, getByTestId } = render(<Dashboard />);
+    const {getByText, getByTestId} = render(<Dashboard />);
 
     await wait(() => expect(getByText('Cadeira Rivatti')).toBeTruthy(), {
       timeout: 200,
@@ -94,7 +94,7 @@ describe('Dashboard', () => {
 
     apiMock.onGet('products').reply(200, products);
 
-    const { getByText, getByTestId } = render(<Dashboard />);
+    const {getByText, getByTestId} = render(<Dashboard />);
 
     await wait(() => expect(getByText('Cadeira Rivatti')).toBeTruthy(), {
       timeout: 200,

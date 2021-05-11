@@ -1,8 +1,8 @@
 /* eslint-disable import/first */
 
 import React from 'react';
-import { mocked } from 'ts-jest/utils';
-import { View, Text, TouchableOpacity } from 'react-native';
+import {mocked} from 'ts-jest/utils';
+import {View, Text, TouchableOpacity} from 'react-native';
 
 import {
   render,
@@ -25,10 +25,10 @@ jest.mock('@react-native-community/async-storage', () => ({
 }));
 
 import AsyncStorage from '@react-native-community/async-storage';
-import { CartProvider, useCart } from '../../hooks/cart';
+import {CartProvider, useCart} from '../../hooks/cart';
 
 const TestComponent: React.FC = () => {
-  const { products, addToCart, increment, decrement } = useCart();
+  const {products, addToCart, increment, decrement} = useCart();
 
   function handleAddToCart(): void {
     addToCart({
@@ -83,7 +83,7 @@ describe('Cart Context', () => {
   });
 
   it('should be able to add products to the cart', async () => {
-    const { getByText, getByTestId } = render(
+    const {getByText, getByTestId} = render(
       <CartProvider>
         <TestComponent />
       </CartProvider>,
@@ -98,7 +98,7 @@ describe('Cart Context', () => {
   });
 
   it('should be able to increment quantity', async () => {
-    const { getByText, getByTestId } = render(
+    const {getByText, getByTestId} = render(
       <CartProvider>
         <TestComponent />
       </CartProvider>,
@@ -116,7 +116,7 @@ describe('Cart Context', () => {
   });
 
   it('should be able to decrement quantity', async () => {
-    const { getByText, getByTestId } = render(
+    const {getByText, getByTestId} = render(
       <CartProvider>
         <TestComponent />
       </CartProvider>,
@@ -154,7 +154,7 @@ describe('Cart Context', () => {
       ),
     );
 
-    const { getByText } = render(
+    const {getByText} = render(
       <CartProvider>
         <TestComponent />
       </CartProvider>,
@@ -166,7 +166,7 @@ describe('Cart Context', () => {
   });
 
   it('should store products in AsyncStorage while adding, incrementing and decrementing', async () => {
-    const { getByTestId } = render(
+    const {getByTestId} = render(
       <CartProvider>
         <TestComponent />
       </CartProvider>,

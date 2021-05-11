@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-import { mocked } from 'ts-jest/utils';
-import { render, fireEvent, act } from '@testing-library/react-native';
+import {mocked} from 'ts-jest/utils';
+import {render, fireEvent, act} from '@testing-library/react-native';
 
 jest.mock('../../hooks/cart.tsx', () => ({
   __esModule: true,
@@ -19,7 +19,7 @@ jest.mock('../../utils/formatValue.ts', () => ({
 }));
 
 import Cart from '../../pages/Cart';
-import { useCart } from '../../hooks/cart';
+import {useCart} from '../../hooks/cart';
 
 const useCartMocked = mocked(useCart);
 
@@ -49,7 +49,7 @@ useCartMocked.mockReturnValue({
 
 describe('Dashboard', () => {
   it('should be able to list products on the cart', async () => {
-    const { getByText } = render(<Cart />);
+    const {getByText} = render(<Cart />);
 
     expect(getByText('Cadeira Rivatti')).toBeTruthy();
     expect(getByText('400')).toBeTruthy();
@@ -63,13 +63,13 @@ describe('Dashboard', () => {
   });
 
   it('should be able to calculate the cart total', async () => {
-    const { getByText } = render(<Cart />);
+    const {getByText} = render(<Cart />);
 
     expect(getByText('8000')).toBeTruthy();
   });
 
   it('should be able to calculate the cart total', async () => {
-    const { getByText } = render(<Cart />);
+    const {getByText} = render(<Cart />);
 
     expect(getByText('15 itens')).toBeTruthy();
   });
@@ -93,7 +93,7 @@ describe('Dashboard', () => {
       decrement: jest.fn(),
     });
 
-    const { getByTestId } = render(<Cart />);
+    const {getByTestId} = render(<Cart />);
 
     act(() => {
       fireEvent.press(getByTestId('increment-1234'));
@@ -121,7 +121,7 @@ describe('Dashboard', () => {
       decrement,
     });
 
-    const { getByTestId } = render(<Cart />);
+    const {getByTestId} = render(<Cart />);
 
     act(() => {
       fireEvent.press(getByTestId('decrement-1234'));

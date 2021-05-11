@@ -2,9 +2,9 @@
 
 import React from 'react';
 
-import { mocked } from 'ts-jest/utils';
-import { render, fireEvent, act } from '@testing-library/react-native';
-import { useNavigation } from '@react-navigation/native';
+import {mocked} from 'ts-jest/utils';
+import {render, fireEvent, act} from '@testing-library/react-native';
+import {useNavigation} from '@react-navigation/native';
 
 jest.mock('@react-navigation/native', () => {
   const originalModule = jest.requireActual('@react-navigation/native');
@@ -30,7 +30,7 @@ jest.mock('../../utils/formatValue.ts', () => ({
 }));
 
 import FloatingCart from '../../components/FloatingCart';
-import { useCart } from '../../hooks/cart';
+import {useCart} from '../../hooks/cart';
 
 const useCartMocked = mocked(useCart);
 
@@ -68,19 +68,19 @@ useNavigationMocked.mockReturnValue({
 
 describe('Dashboard', () => {
   it('should be able to calculate the cart total', async () => {
-    const { getByText } = render(<FloatingCart />);
+    const {getByText} = render(<FloatingCart />);
 
     expect(getByText('8000')).toBeTruthy();
   });
 
   it('should be able to show the total quantity of itens in the cart', async () => {
-    const { getByText } = render(<FloatingCart />);
+    const {getByText} = render(<FloatingCart />);
 
     expect(getByText('15 itens')).toBeTruthy();
   });
 
   it('should be able to navigate to the cart', async () => {
-    const { getByTestId } = render(<FloatingCart />);
+    const {getByTestId} = render(<FloatingCart />);
 
     act(() => {
       fireEvent.press(getByTestId('navigate-to-cart-button'));
