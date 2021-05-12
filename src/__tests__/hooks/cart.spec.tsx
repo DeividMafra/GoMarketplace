@@ -51,15 +51,15 @@ const TestComponent: React.FC = () => {
   return (
     <>
       <TouchableOpacity testID="add-to-cart" onPress={handleAddToCart}>
-        Add to cart
+        <>Add to cart</>
       </TouchableOpacity>
 
       <TouchableOpacity testID="increment" onPress={handleIncrement}>
-        Increment
+        <>Increment</>
       </TouchableOpacity>
 
       <TouchableOpacity testID="decrement" onPress={handleDecrement}>
-        Decrement
+        <> Decrement</>
       </TouchableOpacity>
 
       {products.map(product => (
